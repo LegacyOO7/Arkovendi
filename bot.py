@@ -408,6 +408,7 @@ async def manga_click(client, callback: CallbackQuery, pagination: Pagination = 
         manga = mangas[callback.data]
         pagination.manga = manga
 
+    db = DB()
     results = await pagination.manga.client.get_chapters(pagination.manga, pagination.page)
 
     if not results:
@@ -437,7 +438,6 @@ async def manga_click(client, callback: CallbackQuery, pagination: Pagination = 
         if result.unique() not in chapters:
           chapters[result.unique()] = result
     
-    db = DB()
     subs = await db.get(Subscription, (pagination.manga.url, str(callback.from_user.id)))
 
     prev = [InlineKeyboardButton('<<', f'{pagination.id}_{pagination.page - 1}')]
