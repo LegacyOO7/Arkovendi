@@ -424,7 +424,8 @@ async def manga_click(client, callback: CallbackQuery, pagination: Pagination = 
     
     if all_page_key not in all_pages:
       all_results = [ch async for ch in pagination.manga.client.iter_chapters(pagination.manga.url, pagination.manga.name)]
-      
+      if await db.get(LastChapter, pagination.manga.url) is None:
+        await db.add(LastChapter(url=pagination.manga.url, chapter_url=all_results[0].url))
       all_pages[all_page_key] = []
       for result in all_results:
         if result.unique() not in all_pages[all_page_key]:
