@@ -89,9 +89,7 @@ class MangaBuddyClient(MangaClient):
 
         imgs = re.findall(regex, content)[0].decode().split(',')
 
-        images_url = [img for img in imgs]
-
-        return images_url
+        return imgs
 
     async def search(self, query: str = "", page: int = 1) -> List[MangaCard]:
         request_url = self.search_url
