@@ -169,9 +169,10 @@ async def get_manga_thumb(card: MangaCard) -> str:
     return thumb_path 
 
   path = Path(thumb_path)
+
   path.parent.mkdir(parents=True, exist_ok=True)
   file_name = f"pictures/{card.unique()}.jpg"
-  await card.client.get_cover(card, cache=True, file_name=thumb_path)
+  await card.client.get_cover(card, cache=True, file_name=file_name)
 
   return thumb_path if os.path.exists(thumb_path) else None
     
