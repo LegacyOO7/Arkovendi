@@ -170,10 +170,8 @@ async def get_manga_thumb(card: MangaCard) -> str:
 
   path = Path(thumb_path)
   path.parent.mkdir(parents=True, exist_ok=True)
-  with path.open("wb") as f:
-    content = await card.client.get_url(card.picture_url)
-    f.write(content)
-    return thumb_path
+  await card.client.get_cover(card, cache=True, file_name=thumb_path)
+  return thumb_path if os.path.exists(thumb_path) else None
     
 @bot.on_message(filters=~(filters.private & filters.incoming))
 async def on_chat_or_channel_message(client: Client, message: Message):
