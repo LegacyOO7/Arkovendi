@@ -117,7 +117,7 @@ class MangaClient(ClientSession, metaclass=LanguageSingleton):
         i = 0
         tasks = []
         for picture in manga_chapter.pictures:
-            ext = picture.split('.')[-1]
+            ext = picture.split('.')[-1].split('?')[0]
             file_name = f'{folder_name}/{format(i, "05d")}.{ext}'
             tasks.append(
               self.download_picture(picture, file_name, manga_chapter)
