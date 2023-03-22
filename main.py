@@ -15,6 +15,7 @@ LOG = logging.getLogger(__name__)
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
                     handlers=[handlers.RotatingFileHandler(LOG_FILE, maxBytes=700000, backupCount=10)])
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
 sys.stderr.write = LOG.error
 sys.stdout.write = LOG.info
 
