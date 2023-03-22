@@ -226,7 +226,7 @@ async def on_start(client: Client, message: Message):
 async def on_help(client: Client, message: Message): 
     await message.reply(help_msg)
     
-@bot.on_message(filters=filters.command(['logs']))
+@bot.on_message(filters=filters.command(['logs']) & filters.user(SUDOS))
 async def send_logs(client: Client, message: Message):
     await message.reply_document(LOG_FILE, caption="<b>System Logs</b>")
 
