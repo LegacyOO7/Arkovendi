@@ -7,7 +7,6 @@ import re
 from dataclasses import dataclass
 import datetime as dt
 import json
-import logging
 import traceback 
 
 import pyrogram.errors
