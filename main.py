@@ -4,6 +4,7 @@ import asyncio as aio
 import glob
 import os
 import uvloop
+import logging
 uvloop.install()
 
 from bot import bot, manga_updater, LOG_FILE
