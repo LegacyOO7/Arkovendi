@@ -169,6 +169,9 @@ async def get_manga_thumb(card: MangaCard) -> str:
   if os.path.exists(thumb_path):
     return thumb_path 
 
+  if card.picture_url == "":
+    return None
+
   path = Path(thumb_path)
 
   path.parent.mkdir(parents=True, exist_ok=True)
