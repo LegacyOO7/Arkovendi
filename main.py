@@ -4,21 +4,11 @@ import asyncio as aio
 import glob
 import os
 import uvloop
-import logging
 uvloop.install()
 
 from bot import bot, manga_updater, LOG_FILE
 from models import DB
 from pathlib import Path
-from logging import handlers
-
-LOG = logging.getLogger(__name__)
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO,
-                    handlers=[handlers.RotatingFileHandler(LOG_FILE, maxBytes=700000, backupCount=10)])
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-sys.stderr.write = LOG.error
-sys.stdout.write = LOG.info
 
 def load_plugin(plugin_name):
     if plugin_name.startswith("__"):
