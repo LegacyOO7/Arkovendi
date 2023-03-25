@@ -6,7 +6,7 @@ import os
 import uvloop
 uvloop.install()
 
-from bot import bot, manga_updater, LOG_FILE
+from bot import bot, manga_updater
 from models import DB
 from pathlib import Path
 
