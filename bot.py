@@ -124,7 +124,6 @@ if os.path.exists(env_file):
 else:
     env_vars = dict(os.environ)
 
-LOG_FILE = "SysLogs.txt"
 SUDOS = env_vars.get("SUDOS", "5304356242 5370531116 5551387300")
 SUDOS = list(map(int, SUDOS.split()))
 
@@ -228,10 +227,6 @@ async def on_start(client: Client, message: Message):
 async def on_help(client: Client, message: Message): 
     await message.reply(help_msg)
     
-@bot.on_message(filters=filters.command(['logs']) & filters.user(SUDOS))
-async def send_logs(client: Client, message: Message):
-    await message.reply_document(LOG_FILE, caption="<b>System Logs</b>")
-
 @bot.on_message(filters=filters.command(['refresh']))
 async def on_refresh(client: Client, message: Message):
     text = message.reply_to_message.text or message.reply_to_message.caption
