@@ -120,7 +120,7 @@ class MangaClient(ClientSession, metaclass=LanguageSingleton):
             ext = picture.split('.')[-1].split('?')[0]
             file_name = f'{folder_name}/{format(i, "05d")}.{ext}'
             tasks.append(
-              self.download_picture(picture, file_name, manga_chapter)
+              asyncio.create_task(self.download_picture(picture, file_name, manga_chapter))
             )
             i += 1
             
