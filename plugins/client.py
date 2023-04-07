@@ -124,11 +124,8 @@ class MangaClient(ClientSession, metaclass=LanguageSingleton):
             )
             i += 1
             
-        try:
-          await asyncio.gather(*tasks)
-        except:
-          await asyncio.gather(*tasks)
-        
+        await asyncio.gather(*tasks)
+       
         return Path(f'cache/{manga_chapter.client.name}') / folder_name
 
     async def get_picture(self, manga_chapter: MangaChapter, url, *args, **kwargs):
