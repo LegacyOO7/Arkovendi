@@ -5,4 +5,9 @@ services:
     repo: https://github.com/YiZaha0/trash-manga-bot.git
     plan: free
     branch: custom
-  
+    envVars:
+      - key: API_ID
+        key: API_HASH
+        key: BOT_TOKEN
+        key: CACHE_CHANNEL
+        key: DATABASE_URL_PRIMARY
