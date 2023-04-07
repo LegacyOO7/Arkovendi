@@ -7,12 +7,12 @@ services:
     branch: custom
     envVars:
       - key: API_ID
-        generateValue: true
+        sync: false
       - key: API_HASH
-        generateValue: true
+        sync: false
       - key: BOT_TOKEN
-        generateValue: true
+        sync: false
       - key: CACHE_CHANNEL
-        generateValue: true
+        sync: false
       - key: DATABASE_URL_PRIMARY
-        generateValue: true
+        sync: false
