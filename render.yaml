@@ -7,7 +7,12 @@ services:
     branch: custom
     envVars:
       - key: API_ID
+        generateValue: true
       - key: API_HASH
+        generateValue: true
       - key: BOT_TOKEN
+        generateValue: true
       - key: CACHE_CHANNEL
+        generateValue: true
       - key: DATABASE_URL_PRIMARY
+        generateValue: true
