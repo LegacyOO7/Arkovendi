@@ -14,5 +14,7 @@ services:
         sync: false
       - key: CACHE_CHANNEL
         sync: false
+      - key: CHANNEL
+        sync: false
       - key: DATABASE_URL_PRIMARY
         sync: false
