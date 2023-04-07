@@ -8,4 +8,4 @@ async def run_web_server():
     app.add_routes([web.get("/", root_handler)])
     runner = web.AppRunner(app)
     await runner.setup()
-    await runner.TCPSite(runner, "0.0.0.0", 3000).start()
+    await web.TCPSite(runner, "0.0.0.0", 3000).start()
