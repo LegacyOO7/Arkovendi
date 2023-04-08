@@ -39,7 +39,7 @@ async def async_main():
 
 if __name__ == '__main__':
     # threading.Thread(target=lambda: app.run(host="0.0.0.0")).start()
-    loop = aio.get_event_loop()
+    loop = aio.get_event_loop() or aio.new_event_loop()
     loop.run_until_complete(async_main())
     loop.create_task(manga_updater())
     bot.run()
