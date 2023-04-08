@@ -3,11 +3,12 @@ import sys
 import asyncio as aio
 import glob
 import os
+import threading 
 import uvloop
 uvloop.install()
 
 from bot import bot, manga_updater
-from server import run_web_server
+from server import app
 from models import DB
 from pathlib import Path
 
@@ -37,6 +38,7 @@ async def async_main():
     await db.connect()
 
 if __name__ == '__main__':
+    threading.Thread(target=lambda: app.run(host="0.0.0.0")).start()
     loop = aio.get_event_loop()
     loop.run_until_complete(async_main())
     loop.create_task(manga_updater())
