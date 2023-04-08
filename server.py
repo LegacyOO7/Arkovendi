@@ -1,11 +1,8 @@
-from aiohttp import web
+from flask import Flask, redirect, url_for, request
 
-async def root_handler(request):
-    return web.json_response("Online")
+app = Flask(__name__)
 
-async def run_web_server():
-    app = web.Application()
-    app.add_routes([web.get("/", root_handler)])
-    runner = web.AppRunner(app)
-    await runner.setup()
-    await web.TCPSite(runner, "0.0.0.0", 3000).start()
+@app.route("/")
+def route_handler():
+    return "Online"
+
