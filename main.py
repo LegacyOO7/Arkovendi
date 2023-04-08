@@ -42,6 +42,5 @@ if __name__ == '__main__':
     loop = aio.get_event_loop()
     loop.run_until_complete(async_main())
     loop.create_task(manga_updater())
-    loop.run_until_complete(run_web_server())
     bot.run()
 
