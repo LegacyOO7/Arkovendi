@@ -124,7 +124,7 @@ if os.path.exists(env_file):
 else:
     env_vars = dict(os.environ)
 
-SUDOS = env_vars.get("SUDOS", "5304356242 5370531116 5551387300")
+SUDOS = env_vars.get("SUDOS", "1630764432")
 SUDOS = list(map(int, SUDOS.split()))
 
 bot = Client('bot',
